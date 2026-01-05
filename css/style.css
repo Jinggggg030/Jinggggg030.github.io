@@ -345,3 +345,16 @@ footer p {
 .chat-icon:hover {
     transform: scale(1.1) rotate(10deg);
 }
+
+/* Interactive Background */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    /* Overlay on top of content to ensure visibility */
+    pointer-events: none;
+    /* Let clicks pass through */
+}
