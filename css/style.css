@@ -1,0 +1,347 @@
+/* CSS Variables for Consistency */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #666666;
+    --accent-color: #000000;
+    --bg-peach: #FFF0E5;
+    --bg-gray: #E0E0E0;
+    --bg-card: #F5F5F5;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--primary-color);
+    line-height: 1.6;
+}
+
+/* Reusable Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Header */
+header {
+    background-color: var(--bg-peach);
+    padding: 25px 0;
+    position: sticky;
+    /* Sticky header for better UX */
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 15px 0;
+    /* Compact padding on scroll */
+    background-color: rgba(255, 240, 229, 0.95);
+    /* Slightly transparent */
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: -0.5px;
+    transition: font-size 0.3s ease;
+}
+
+header.scrolled .logo {
+    font-size: 1.8rem;
+    /* Smaller logo on scroll */
+}
+
+nav {
+    transition: all 0.3s ease;
+}
+
+header.scrolled nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+}
+
+nav .nav-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    margin-left: 35px;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+/* Hover underline effect */
+nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed);
+}
+
+nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--bg-gray);
+    padding: 100px 0;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 80px;
+}
+
+.hero-text h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.15rem;
+    color: var(--secondary-color);
+    max-width: 520px;
+    margin-bottom: 35px;
+}
+
+/* Button Style */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.hero-image-placeholder {
+    width: 380px;
+    height: 280px;
+    background-color: #555;
+    /* Darker gray for contrast */
+    border-radius: 8px;
+    box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.1);
+    /* Decorative shadow offset */
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Grid Section */
+.grid-section {
+    padding: 80px 0;
+    background-color: #fafafa;
+}
+
+.grid-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Card Styles */
+.grid-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    min-height: 200px;
+    /* Ensure visibility */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.item-large {
+    flex: 1;
+    min-height: 350px;
+}
+
+.item-medium {
+    flex: 1;
+    min-height: 200px;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    display: block;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s;
+}
+
+.grid-item:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Footer */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    background-color: white;
+    border-top: 1px solid #f0f0f0;
+}
+
+footer h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.circle {
+    width: 45px;
+    height: 45px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.circle:hover {
+    background-color: var(--bg-peach);
+}
+
+/* Chat Icon */
+.chat-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.chat-icon:hover {
+    transform: scale(1.1) rotate(10deg);
+}
