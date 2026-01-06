@@ -97,6 +97,8 @@ header.scrolled {
     color: var(--accent-color);
     letter-spacing: -0.5px;
     transition: font-size 0.3s ease;
+    text-decoration: none;
+    /* Added to remove underline from link */
 }
 
 header.scrolled .logo {
