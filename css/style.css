@@ -299,10 +299,10 @@ nav .nav-link:hover::after {
 
 /* Footer */
 footer {
-    padding: 60px 0;
+    padding: 20px 0;
     text-align: center;
-    background-color: white;
-    border-top: 1px solid #f0f0f0;
+    background-color: var(--bg-card);
+    border-top: 1px solid #e0e0e0;
 }
 
 footer h3 {
@@ -417,7 +417,7 @@ footer p {
 /* Story Section */
 .story-section {
     padding: 100px 0;
-    background-color: white;
+    background-color: var(--bg-card);
     overflow: hidden;
 }
 
@@ -494,11 +494,11 @@ footer p {
 /* Personal Profile */
 .profile-section {
     padding: 80px 0;
-    background-color: var(--bg-peach);
+    background-color: var(--bg-gray);
 }
 
 .profile-container {
-    background-color: white;
+    background-color: var(--bg-card);
     border-radius: 20px;
     padding: 50px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
@@ -560,7 +560,7 @@ footer p {
 /* Interests Section (Redesigned) */
 .interests-section {
     padding: 100px 0;
-    background-color: white;
+    background-color: var(--bg-card);
 }
 
 .interests-grid {
