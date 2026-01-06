@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'; // Subtler squares
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.35)'; // Slightly more transparent (0.5 -> 0.35)
             ctx.fillRect(this.x, this.y, this.size, this.size);
         }
     }
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Particles
     function initParticles() {
         particles = [];
-        const numParticles = 60; // Increased density
+        const numParticles = 60;
         for (let i = 0; i < numParticles; i++) {
             particles.push(new Particle());
         }
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let dy = particle.y - mouse.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < 150) {
-                    ctx.strokeStyle = 'rgba(0, 0, 0, 0.12)'; // Subtle lines to mouse
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)'; // reduced from 0.4
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(particle.x, particle.y);
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let dy = particle.y - p2.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < 100) {
-                    ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)'; // Very faint connection lines
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)'; // reduced from 0.2
                     ctx.lineWidth = 0.5;
                     ctx.beginPath();
                     ctx.moveTo(particle.x, particle.y);
@@ -113,5 +113,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
         requestAnimationFrame(animate);
     }
-    animate();
+    animate(); // Restart animation loop
+
+    // Scroll Animation Observer (With Reverse Effect)
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                if (entry.target.classList.contains('count-up')) {
+                    startCountAnimation(entry.target);
+                }
+            } else {
+                // Remove class to play animation again when re-entering
+                entry.target.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+
+    const scrollElements = document.querySelectorAll('.scroll-reveal, .slide-left, .slide-right, .scale-up');
+    scrollElements.forEach(el => observer.observe(el));
+
+    // Counter Animation
+    function startCountAnimation(el) {
+        if (el.dataset.animated) return; // Prevent re-running
+        el.dataset.animated = "true";
+
+        const target = parseInt(el.dataset.target);
+        const duration = 2000; // ms
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                el.innerText = target;
+                clearInterval(timer);
+            } else {
+                el.innerText = Math.ceil(current);
+            }
+        }, 16);
+    }
 });

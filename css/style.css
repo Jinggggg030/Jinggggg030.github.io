@@ -140,6 +140,16 @@ nav .nav-link:hover::after {
     width: 100%;
 }
 
+/* Active Nav Link */
+.nav-link.active {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
 /* Hero Section */
 .hero {
     background-color: var(--bg-gray);
@@ -354,7 +364,337 @@ footer p {
     width: 100%;
     height: 100%;
     z-index: 999;
-    /* Overlay on top of content to ensure visibility */
     pointer-events: none;
-    /* Let clicks pass through */
+    mix-blend-mode: exclusion;
+    opacity: 0.35;
+    /* Significantly reduced for minimal obstruction */
+}
+
+/* --- ENHANCED ANIMATIONS --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scale-up {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-reveal.active,
+.slide-left.active,
+.slide-right.active,
+.scale-up.active {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* --- ABOUT PAGE REDESIGN --- */
+
+/* Hero Overrides */
+.about-hero-image {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px var(--accent-color);
+}
+
+/* Story Section */
+.story-section {
+    padding: 100px 0;
+    background-color: white;
+    overflow: hidden;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.story-text h3 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.story-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    /* Thick underline */
+    background-color: rgba(26, 26, 26, 0.1);
+    z-index: -1;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+/* About Page Hero (Distinct Design) */
+.about-hero-section {
+    background-color: var(--accent-color);
+    /* Black */
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.about-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: #ffffff;
+    /* White */
+}
+
+.about-hero-content p {
+    font-size: 1.25rem;
+    color: #cccccc;
+    /* Light Gray */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Personal Profile */
+.profile-section {
+    padding: 80px 0;
+    background-color: var(--bg-peach);
+}
+
+.profile-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--bg-gray);
+    padding-bottom: 20px;
+}
+
+.profile-header h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-item h5 {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.profile-bio {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-bio p {
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    line-height: 1.8;
+}
+
+/* Interests Section (Redesigned) */
+.interests-section {
+    padding: 100px 0;
+    background-color: white;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 Columns for large space */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.interest-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    border: 1px solid #eee;
+}
+
+.interest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.interest-image-placeholder {
+    width: 100%;
+    height: 300px;
+    /* Large space for photo */
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.interest-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.interest-card:hover .interest-image-placeholder img {
+    transform: scale(1.05);
+}
+
+.interest-content {
+    padding: 30px;
+    text-align: center;
+}
+
+.interest-content h4 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.interest-content p {
+    color: var(--secondary-color);
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 80px 0;
+    background-color: #fafafa;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.section-header h3 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 300px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.2rem;
+}
+
+/* Animation Delays */
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-container {
+        padding: 30px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
 }
