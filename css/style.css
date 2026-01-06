@@ -357,7 +357,6 @@ footer p {
 }
 
 /* Interactive Background */
-/* Interactive Background */
 #bg-canvas {
     position: fixed;
     top: 0;
@@ -367,9 +366,10 @@ footer p {
     z-index: 999;
     pointer-events: none;
     mix-blend-mode: difference;
-    /* "Difference" makes white on black look Pure White */
-    opacity: 0.9;
-    /* Restored visibility (JS handles texture transparency) */
+    opacity: 0.2;
+    /* Standard visibility for white sections */
+    transition: opacity 0.5s ease;
+    /* Smooth toggle */
 }
 
 /* --- ENHANCED ANIMATIONS --- */

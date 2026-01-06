@@ -158,4 +158,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 16);
     }
+
+    // Dynamic Background Opacity for About Hero
+    const aboutHero = document.querySelector('.about-hero-section');
+    if (aboutHero) {
+        // Create thresholds array [0, 0.05, 0.1, ... 1.0]
+        const thresholds = [];
+        for (let i = 0; i <= 1.0; i += 0.05) {
+            thresholds.push(i);
+        }
+
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const canvas = document.getElementById('bg-canvas');
+                // Calculate opacity: Base 0.2 + (Ratio * 0.7)
+                // When 100% visible: 0.2 + 0.7 = 0.9
+                // When 0% visible: 0.2 + 0 = 0.2
+                const newOpacity = 0.2 + (entry.intersectionRatio * 0.7);
+                canvas.style.opacity = newOpacity.toFixed(2);
+                // Remove CSS transition to avoid lag with rapid JS updates
+                canvas.style.transition = 'none';
+            });
+        }, { threshold: thresholds });
+        heroObserver.observe(aboutHero);
+    }
 });
