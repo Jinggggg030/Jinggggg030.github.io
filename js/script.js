@@ -181,5 +181,45 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { threshold: thresholds });
         heroObserver.observe(aboutHero);
+    } // Close aboutHero block
+
+    // Horizontal Scroll Logic for Education Page
+    const scrollContainer = document.querySelector('.education-scroll-container');
+    const timelineHorizontal = document.querySelector('.timeline-horizontal');
+    const timelineCards = document.querySelectorAll('.timeline-card');
+
+    if (scrollContainer && timelineHorizontal) {
+        // Show cards immediately on load to prevent visibility issues
+        timelineCards.forEach(card => card.classList.add('visible'));
+
+        window.addEventListener('scroll', () => {
+            const containerTop = scrollContainer.offsetTop;
+            const containerHeight = scrollContainer.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+
+            // Start scrolling when container hits top of viewport
+            const start = containerTop;
+            const end = containerTop + containerHeight - viewportHeight;
+
+            if (scrollY >= start && scrollY <= end) {
+                // Calculate progress (0 to 1)
+                const progress = (scrollY - start) / (end - start);
+
+                // Dynamic Calculation: How much content is hiding off-screen?
+                // Total Width - Viewport Width + Padding
+                const maxTranslate = timelineHorizontal.scrollWidth - window.innerWidth + 100;
+
+                const moveAmount = progress * -maxTranslate;
+                timelineHorizontal.style.transform = `translateX(${moveAmount}px)`;
+            } else if (scrollY < start) {
+                timelineHorizontal.style.transform = `translateX(0)`;
+            } else if (scrollY > end) {
+                // Snap to end
+                const maxTranslate = timelineHorizontal.scrollWidth - window.innerWidth + 100;
+                timelineHorizontal.style.transform = `translateX(${-maxTranslate}px)`;
+            }
+        });
     }
-});
+
+}); // Close DOMContentLoaded
