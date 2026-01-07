@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Chai Yi Jing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">Chai Yi Jing</a>
+            <nav>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="education.html" class="nav-link">Education</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link active contact-btn">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <!-- Background Clouds Animation (Reused from Projects) -->
+            <div class="flight-scene" style="z-index: 0;">
+                <div class="clouds">
+                    <svg class="cloud big slow" viewBox="0 0 100 100" fill="#ffffff" opacity="0.6">
+                        <path d="M25,60 a20,20 0 0,1 0,-40 a20,20 0 0,1 40,0 a20,20 0 0,1 40,0 a20,20 0 0,1 0,40 z" />
+                    </svg>
+                    <svg class="cloud small slower" viewBox="0 0 100 100" fill="#ffffff" opacity="0.4"
+                        style="top: 50%;">
+                        <path d="M25,60 a20,20 0 0,1 0,-40 a20,20 0 0,1 40,0 a20,20 0 0,1 40,0 a20,20 0 0,1 0,40 z" />
+                    </svg>
+                    <svg class="cloud distant super-slow" viewBox="0 0 100 100" fill="#ffffff" opacity="0.3"
+                        style="top: 10%;">
+                        <path d="M25,60 a20,20 0 0,1 0,-40 a20,20 0 0,1 40,0 a20,20 0 0,1 40,0 a20,20 0 0,1 0,40 z" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Floating Contact Icons Decoration -->
+            <div class="floating-icons" style="z-index: 0;">
+                <i class="fas fa-envelope icon-float delay-1" style="top: 20%; left: 15%;"></i>
+                <i class="fas fa-phone-alt icon-float delay-2" style="top: 60%; left: 10%;"></i>
+                <i class="fas fa-comment-dots icon-float delay-3" style="top: 30%; right: 15%;"></i>
+                <i class="fas fa-paper-plane icon-float delay-4" style="top: 70%; right: 10%;"></i>
+                <i class="fas fa-at icon-float delay-5" style="top: 15%; right: 30%;"></i>
+                <!-- Added More Icons -->
+                <i class="fas fa-map-marker-alt icon-float delay-1"
+                    style="top: 80%; left: 40%; font-size: 2.5rem; opacity: 0.04;"></i>
+                <i class="fas fa-user icon-float delay-3" style="top: 10%; left: 50%; font-size: 1.8rem;"></i>
+                <i class="fas fa-globe icon-float delay-2"
+                    style="top: 50%; right: 5%; font-size: 3.5rem; opacity: 0.03;"></i>
+                <i class="fas fa-share-alt icon-float delay-5" style="top: 40%; left: 5%; font-size: 2rem;"></i>
+                <i class="fas fa-inbox icon-float delay-4" style="top: 85%; right: 35%;"></i>
+            </div>
+
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="hero-title-wrapper">
+                    <h1 class="hero-glitch" data-text="LET'S">LET'S</h1>
+                    <h1 class="hero-outline">CONNECT</h1>
+                </div>
+                <p class="fade-in">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content Section -->
+        <section class="contact-content">
+            <div class="container contact-grid">
+
+                <!-- Left Column: Contact Info -->
+                <div class="contact-info fade-in-up">
+                    <h3>Get in Touch</h3>
+                    <p class="contact-desc">I am currently open to new opportunities and collaborations. Feel free to
+                        reach out via email or connect on social media.</p>
+
+                    <div class="contact-item">
+                        <div class="icon-box">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <span class="label">Email</span>
+                            <a href="mailto:yijing@example.com" class="value">yijing@example.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon-box">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <span class="label">Location</span>
+                            <span class="value">Melaka, Malaysia</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links-large">
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        <a href="#" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="contact-form-wrapper fade-in-up delay-100">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Send Message
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <!-- Footer Removed as requested -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
