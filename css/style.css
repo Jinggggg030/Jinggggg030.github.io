@@ -328,11 +328,23 @@ footer p {
     height: 45px;
     background-color: #f0f0f0;
     border-radius: 50%;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    /* Added transform */
+    display: flex;
+    /* Center the icon */
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    /* Icon color */
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
 .circle:hover {
-    background-color: var(--bg-peach);
+    background-color: var(--accent-color);
+    /* Use accent (black) or peach? User said logo. */
+    color: #fff;
+    transform: translateY(-5px);
 }
 
 /* Chat Icon */
