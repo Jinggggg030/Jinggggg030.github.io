@@ -251,6 +251,9 @@ nav .nav-link:hover::after {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: stretch !important;
+    /* Force full width content */
+    text-align: left;
 }
 
 .grid-item:hover {
@@ -261,6 +264,7 @@ nav .nav-link:hover::after {
 .item-large {
     flex: 1;
     min-height: 350px;
+    text-align: left;
 }
 
 .item-medium {
@@ -270,6 +274,8 @@ nav .nav-link:hover::after {
 
 .card-content {
     padding: 30px;
+    text-align: left !important;
+    width: 100%;
 }
 
 .card-content h3 {
@@ -2723,4 +2729,117 @@ footer p {
     .contact-hero {
         padding-top: 140px;
     }
+}
+
+/* Intro Section */
+.intro-section {
+    padding: 60px 20px 40px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.intro-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+}
+
+.intro-section p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+
+/* Intro Highlights */
+.intro-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.intro-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.intro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    border-color: var(--accent-color);
+}
+
+.intro-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.intro-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.intro-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+
+/* Grid Link Wrapper */
+.grid-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Center Align Left Column Cards (About & Education) */
+.grid-column.left .card-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.grid-column.left .arrow {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+
+/* Arrow Navigation Links */
+.arrow-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arrow-link:hover {
+    transform: translateX(5px);
+    color: var(--accent-color);
+}
+
+/* FIX: Force left alignment for About/Education boxes override */
+.grid-column.left .card-content {
+    text-align: left !important;
+    align-items: flex-start !important;
 }
