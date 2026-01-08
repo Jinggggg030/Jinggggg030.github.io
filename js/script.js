@@ -223,3 +223,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 }); // Close DOMContentLoaded
+
+
+/* Counter Animation */
+const observerOptions = { threshold: 0.5 };
+const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const counter = entry.target;
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const isDecimal = target % 1 !== 0;
+
+        if (entry.isIntersecting) {
+            const duration = 2000;
+            const start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3); // Cubic ease out
+
+                const current = start + (target - start) * ease;
+                counter.textContent = isDecimal ? current.toFixed(2) : Math.floor(current);
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = isDecimal ? target.toFixed(2) : target;
+                }
+            }
+            requestAnimationFrame(update);
+            // observer.unobserve(counter); // Removed to allow re-animation
+        } else {
+            // Reset when out of view
+            counter.textContent = isDecimal ? "0.00" : "0";
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.counter-value').forEach(counter => {
+    counterObserver.observe(counter);
+});

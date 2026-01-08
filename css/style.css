@@ -368,6 +368,8 @@ footer p {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: transform 0.3s;
+    z-index: 9999;
+    /* Ensure it stays on top of everything */
 }
 
 .chat-icon:hover {
@@ -1025,14 +1027,15 @@ footer p {
     overflow: hidden;
     /* Hide horizontal overflow */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    /* Align to top to better control vertical spacing */
 }
 
 /* Floating Header Overlay (Centered) */
 .timeline-overlay-header {
     position: absolute;
-    top: 5px;
-    /* Use minimal top space */
+    top: 20px;
+    /* Clean text from sticky header */
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -1085,7 +1088,9 @@ footer p {
     padding-left: 10vw;
     position: relative;
     /* Move timeline down significantly to clear header */
-    margin-top: 140px;
+    margin-top: 190px;
+    transform: scale(0.9);
+    transform-origin: left top;
 }
 
 /* Horizontal Line */
@@ -2842,4 +2847,118 @@ footer p {
 .grid-column.left .card-content {
     text-align: left !important;
     align-items: flex-start !important;
+}
+
+
+/* Values Section by Antigravity */
+.values-section {
+    padding: 80px 0;
+    background-color: #fafafa;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.value-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.value-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.value-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.value-content h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.value-content p {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* Icon-Based Values Section Override */
+.value-card {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.value-icon {
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+
+.value-content {
+    padding: 0;
+}
+
+.value-content h4 {
+    margin-bottom: 15px;
+}
+
+
+/* Result Counters */
+.result-counter-box {
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    min-width: 100px;
+}
+
+.counter-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: inline-block;
+}
+
+.counter-suffix {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-left: 2px;
+}
+
+.counter-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
